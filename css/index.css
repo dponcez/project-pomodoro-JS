@@ -1,0 +1,97 @@
+:root {
+  --white: hsl(0 100% 100%);
+  --dark: hsl(115 12% 8%);
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: initial;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+body {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: var(--dark);
+  background-image: linear-gradient(hsl(0deg, 80%, 52%), hsl(4deg, 76%, 29%));
+  font-family: "Abel", sans-serif;
+  transition: background-color 0.5s ease;
+  overflow: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container,
+.btns--container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  height: 100vh;
+  position: relative;
+}
+.container .progress--bar {
+  width: 100%;
+  height: 0.5rem;
+  position: fixed;
+  top: 0;
+  border-radius: 0.2em;
+}
+.container .progress--bar::-webkit-progress-bar {
+  background-color: rgba(18, 23, 18, 0.5);
+}
+.container .progress--bar::-webkit-progress-value {
+  background-color: var(--white);
+}
+.container .btns--container {
+  justify-content: space-around;
+  height: 50vh;
+}
+.container .btns--container .btn {
+  border: none;
+  background-color: transparent;
+  color: var(--white);
+  font-size: 1.5rem;
+  font-family: "Abel", sans-serif;
+  text-transform: capitalize;
+}
+.container .btns--container .btn.active {
+  border: 0.2rem solid;
+  border-color: var(--white);
+  font-weight: 680;
+}
+.container .btns--container .btn.active:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.container .btns--container .mode--button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  -webkit-text-emphasis: none;
+          text-emphasis: none;
+  letter-spacing: 0.1rem;
+}
+.container .progress--bar,
+.container .pomodoro--timer {
+  display: none;
+}/*# sourceMappingURL=index.css.map */

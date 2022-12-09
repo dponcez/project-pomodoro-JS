@@ -1,0 +1,122 @@
+// ========== VIEWPORT
+$width: 100vw;
+$height: 100vh;
+// ========== SIZES
+$size: 100%;
+$padding: 1.5rem;
+$radius: .5rem;
+// ========== FONTS
+$font-stack-1: 'Abel', sans-serif;
+$font-stack-2: 'Ubuntu', sans-serif;
+$fnt-wgt: .85;
+$fnt-sz: calc(($padding * $fnt-wgt) + 1vmin);
+// ========== COLORS
+// Principal colors
+$pomodoro: linear-gradient(hsl(0 80% 52%), hsl(4 76% 29%));
+$shortBreak: linear-gradient(hsl(234 80% 52%), hsl(234 56% 29%));
+$longBreak: linear-gradient(hsl(191 80% 52%), hsl(234 56% 29%));
+// Secondary colors
+:root {
+  --white: hsl(0 100% 100%);
+  --dark: hsl(115 12% 8%);
+}
+
+* {
+  &,
+  &::after,
+  &::before{
+    box-sizing: border-box;
+  }
+}
+
+html {
+  font-size: initial
+}
+
+html,
+body {
+  width: $size;
+  height: $height
+}
+
+body {
+  display: block;
+  width: $width;
+  height: $height;
+
+  margin: 0;
+  padding: 0;
+  color: var(--dark);
+  background-image: $pomodoro;
+  font-family: $font-stack-1;
+  transition: background-color .5s ease;
+  overflow: auto;
+}
+
+button { cursor: pointer; }
+
+.container,
+.btns--container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+
+  height: $height;
+  position: relative;
+
+  .progress--bar {
+    width: $size;
+    height: $radius;
+    position: fixed;
+    top: 0;
+    
+    border-radius: .2em;
+
+    &::-webkit-progress-bar { background-color: rgba(hsl(115 12% 8%), .5); }
+    &::-webkit-progress-value { background-color: var(--white); }
+  }
+
+  .btns--container {
+    justify-content: space-around;
+    height: $height * .5;
+
+    .btn {
+      border: none;
+      background-color: transparent;
+      color: var(--white);
+      font-size: $padding;
+      font-family: $font-stack-1;
+      text-transform: capitalize;
+      
+      &.active {
+        border: .2rem solid;
+        border-color: var(--white);
+        font-weight: 800 * $fnt-wgt;
+
+        &:hover {
+          background-color: rgba(hsl(0 100% 100%), .05)
+        }
+      }
+    }
+
+    .mode--button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 15rem;
+      height: 3rem;
+      border-radius: $radius;
+      text-emphasis: none;
+      letter-spacing: .1rem;
+    }
+  }
+
+  .progress--bar,
+  .pomodoro--timer { display: none; }
+}

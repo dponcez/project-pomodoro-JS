@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <!-- Basic Page Needs -->
+  <meta charset='UTF-8'>
+  <meta name='description' content=''>
+  <meta name='author' content=''>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <!-- Mobile Specific Metas -->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Pomodoro Clock</title>
+  <!-- Fonts -->
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Abel&family=Ubuntu&display=swap'>
+  <!-- CSS -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css'>
+  <link rel='stylesheet' href='css/index.css'>
+</head>
+<body>
+  <div class='container'>
+    <progress class="progress--bar" id="js-progress" value="0"></progress>
+    <div class="btns--container" id="js_mode-buttons">
+      <button class="btn mode--button active" data-mode="pomodoro">pomodoro</button>
+      <button class="btn mode--button" data-mode="shortBreak">short break</button>
+      <button class="btn mode--button" data-mode="longBreak">long break</button>
+    </div>
+    <main class="pomodoro--timer">
+      <div class="js--timer">
+        <span id="js-minutes">25</span>
+        <span>:</span>
+        <span id="js-seconds">00</span>
+      </div>
+      <div class="start__btn--container">
+        <button class="start--btn" id='main-button' data-action="js-action">start</button>
+      </div>
+    </main>
+  </div>
+  <script src='js/index.js'></script>
+</body>
+</html>
