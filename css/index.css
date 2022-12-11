@@ -1,4 +1,7 @@
 :root {
+  --pomodoro: linear-gradient(hsl(0 80% 52%), hsl(4 76% 29%));
+  --shortBreak: linear-gradient(hsl(234 80% 52%), hsl(234 56% 29%));
+  --longBreak: linear-gradient(hsl(191 80% 52%), hsl(234 56% 29%));
   --white: hsl(0 100% 100%);
   --dark: hsl(115 12% 8%);
 }
@@ -24,8 +27,8 @@ body {
   margin: 0;
   padding: 0;
   color: var(--dark);
-  background-image: linear-gradient(hsl(0deg, 80%, 52%), hsl(4deg, 76%, 29%));
-  font-family: "Abel", sans-serif;
+  background-image: var(--pomodoro);
+  font-family: "Play", sans-serif;
   transition: background-color 0.5s ease;
   overflow: auto;
 }
@@ -35,6 +38,7 @@ button {
 }
 
 .container,
+.pomodoro--timer,
 .btns--container {
   display: flex;
   align-items: center;
@@ -62,14 +66,15 @@ button {
 }
 .container .btns--container {
   justify-content: space-around;
-  height: 50vh;
+  flex-direction: row;
+  height: 0;
 }
 .container .btns--container .btn {
   border: none;
   background-color: transparent;
   color: var(--white);
-  font-size: 1.5rem;
-  font-family: "Abel", sans-serif;
+  font-size: 1.25rem;
+  font-family: "Inter", sans-serif;
   text-transform: capitalize;
 }
 .container .btns--container .btn.active {
@@ -84,14 +89,52 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 15rem;
+  width: 12rem;
   height: 3rem;
   border-radius: 0.5rem;
   -webkit-text-emphasis: none;
           text-emphasis: none;
   letter-spacing: 0.1rem;
 }
-.container .progress--bar,
 .container .pomodoro--timer {
+  justify-content: center;
+}
+.container .pomodoro--timer .js--timer {
+  display: flex;
+  align-items: center;
+  -webkit-padding-after: 4rem;
+          padding-block-end: 4rem;
+}
+.container .pomodoro--timer .js--timer > span {
+  font-size: calc((1.275rem + 1vmin) * 9);
+  font-family: "Play", sans-serif;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.1rem;
+}
+.container .pomodoro--timer .start--btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
+  height: 3.5rem;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background-color: var(--white);
+  color: hsl(187deg, 80%, 43%);
+  font-size: 2.5rem;
+  font-family: "Play", sans-serif;
+  text-transform: uppercase;
+  box-shadow: 0 -0.6vmin 0.17vmin rgba(175, 175, 211, 0.7) inset;
+}
+.container .pomodoro--timer .start--btn:active {
+  transform: scale(0.98);
+}
+.container .pomodoro--timer .start--btn:hover {
+  color: hsl(197deg, 80%, 46%);
+}
+.container .hidden {
   display: none;
 }/*# sourceMappingURL=index.css.map */

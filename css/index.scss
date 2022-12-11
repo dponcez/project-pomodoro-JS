@@ -6,17 +6,16 @@ $size: 100%;
 $padding: 1.5rem;
 $radius: .5rem;
 // ========== FONTS
-$font-stack-1: 'Abel', sans-serif;
-$font-stack-2: 'Ubuntu', sans-serif;
+$font-stack-1: 'Play', sans-serif;
+$font-stack-2: 'Inter', sans-serif;
 $fnt-wgt: .85;
 $fnt-sz: calc(($padding * $fnt-wgt) + 1vmin);
 // ========== COLORS
 // Principal colors
-$pomodoro: linear-gradient(hsl(0 80% 52%), hsl(4 76% 29%));
-$shortBreak: linear-gradient(hsl(234 80% 52%), hsl(234 56% 29%));
-$longBreak: linear-gradient(hsl(191 80% 52%), hsl(234 56% 29%));
-// Secondary colors
 :root {
+  --pomodoro: linear-gradient(hsl(0 80% 52%), hsl(4 76% 29%));
+  --shortBreak: linear-gradient(hsl(234 80% 52%), hsl(234 56% 29%));
+  --longBreak: linear-gradient(hsl(191 80% 52%), hsl(234 56% 29%));
   --white: hsl(0 100% 100%);
   --dark: hsl(115 12% 8%);
 }
@@ -47,7 +46,7 @@ body {
   margin: 0;
   padding: 0;
   color: var(--dark);
-  background-image: $pomodoro;
+  background-image: var(--pomodoro);
   font-family: $font-stack-1;
   transition: background-color .5s ease;
   overflow: auto;
@@ -56,6 +55,7 @@ body {
 button { cursor: pointer; }
 
 .container,
+.pomodoro--timer,
 .btns--container {
   display: flex;
   align-items: center;
@@ -83,14 +83,15 @@ button { cursor: pointer; }
 
   .btns--container {
     justify-content: space-around;
-    height: $height * .5;
+    flex-direction: row;
+    height: 0;
 
     .btn {
       border: none;
       background-color: transparent;
       color: var(--white);
-      font-size: $padding;
-      font-family: $font-stack-1;
+      font-size: 1.25rem;
+      font-family: $font-stack-2;
       text-transform: capitalize;
       
       &.active {
@@ -109,7 +110,7 @@ button { cursor: pointer; }
       align-items: center;
       justify-content: center;
 
-      width: 15rem;
+      width: 12rem;
       height: 3rem;
       border-radius: $radius;
       text-emphasis: none;
@@ -117,6 +118,52 @@ button { cursor: pointer; }
     }
   }
 
-  .progress--bar,
-  .pomodoro--timer { display: none; }
+  .pomodoro--timer {
+    justify-content: center;
+    
+    .js--timer {
+      display: flex;
+      align-items: center;
+      padding-block-end: 4rem;
+
+      & > span {
+        font-size: calc($fnt-sz * 9);
+        font-family: $font-stack-1;
+        font-weight: 400;
+        color: var(--white);
+        letter-spacing: .1rem;
+      }
+    }
+
+    .start--btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 12rem;
+      height: 3.5rem;
+
+      padding-block: $radius;
+      padding-inline: 1rem;
+
+      border: 0;
+      border-radius: $radius;
+
+      background-color: var(--white);
+      color: hsl(187 80% 43%);
+
+      font-size: 2.5rem;
+      font-family: $font-stack-1;
+      text-transform: uppercase;
+      box-shadow: 0 -0.6vmin 0.17vmin rgb(175 175 211 / 70%) inset;
+
+      &:active {
+        transform: scale(.98)
+      }
+
+      &:hover { color: hsl(197 80% 46%); }
+    }
+  }
+
+  .hidden { display: none; }
 }

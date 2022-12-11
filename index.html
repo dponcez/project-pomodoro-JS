@@ -8,9 +8,13 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <!-- Mobile Specific Metas -->
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>Pomodoro Clock</title>
+  <title>Pomodoro Timer</title>
+  <link rel="shortcut icon" href="./assets/image/clock.ico" type="image/x-icon">
+  <!-- Preconnected Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Fonts -->
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Abel&family=Ubuntu&display=swap'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Play&family=Inter&display=swap'>
   <!-- CSS -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css'>
   <link rel='stylesheet' href='css/index.css'>
@@ -33,6 +37,11 @@
         <button class="start--btn" id='main-button' data-action="js-action">start</button>
       </div>
     </main>
+    <div class="hidden">
+      <audio src="./audio/backtowork.mp3" data-sound="./audio/pomodoro"></audio>
+      <audio src="./audio/break.mp3" data-sound="shortBreak"></audio>
+      <audio src="./audio/button-sound.mp3" data-sound="longBreak"></audio>
+    </div>
   </div>
   <script src='js/index.js'></script>
 </body>
